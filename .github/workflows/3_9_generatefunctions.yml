@@ -1,0 +1,10 @@
+name: Generate functions
+on: push
+jobs:
+  Generate:
+    runs-on: ubuntu-latest
+    steps:
+      - runs: printenv | grep '_FUNC'
+        env:
+          FORMAT_FUNC: ${{ format('{0}, {1}', 'Hi', 'world') }} # フォーマット
+          JOIN_FUNC: ${{ join(github.event.*.html_url, ', '') }} # 結合
